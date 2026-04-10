@@ -1,0 +1,61 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.log
+
+# Working files (not for CDN)
+*.psd
+*.ai
+*.sketch
+*.fig
+*.afdesign
+*.afphoto
+*.xd
+*-raw.*
+*-source.*
+*-wip.*
+*.bak
+*.tmp
+.tmp/
+
+# Large binaries (use external CDN)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+
+# Secrets / credentials
+.env
+.env.*
+*.key
+*.pem
+github_token.txt
+pat.txt
+
+# Python (build scripts)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (build scripts)
+node_modules/
+npm-debug.log
+yarn-error.log

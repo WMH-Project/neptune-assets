@@ -1,0 +1,37 @@
+All Rights Reserved
+
+Copyright (c) 2026 WMH Project — Mission Neptune
+
+This repository contains graphic assets (logos, photographs, illustrations,
+typography and related materials) used in the digital communications of
+Mission Neptune / Neptune Forum 2026.
+
+All files in this repository are the exclusive property of their respective
+rights holders and are made available publicly for the sole purpose of
+enabling CDN-based distribution (via jsDelivr) to the official communication
+channels of the Neptune Forum event held from 6 to 8 June 2026 at the
+Muséum national d'Histoire naturelle, Jardin des Plantes, Paris.
+
+Specifically:
+
+1. Partner logos (in logos/partners/) are the property of their respective
+   organizations and are used here with permission, strictly within the scope
+   of the Mission Neptune / Neptune Forum 2026 communication programme.
+   Any other use requires written authorization from the logo owner.
+
+2. Photographs (in photos/) are used under license. Credits must be displayed
+   on any support using these visuals. See docs/CREDITS.md for attribution
+   requirements.
+
+3. The Mission Neptune and Muséum national d'Histoire naturelle identifiers
+   are reserved for official communication of the event.
+
+4. No content in this repository may be reproduced, redistributed, modified
+   or used outside the scope of Mission Neptune / WMH Project without prior
+   written consent.
+
+No license — express or implied — is granted beyond the right to serve these
+assets through the jsDelivr CDN in the context of Mission Neptune's official
+communications.
+
+For permissions and inquiries: team@mission-neptune.com
