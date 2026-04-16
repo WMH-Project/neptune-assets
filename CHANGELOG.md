@@ -2,6 +2,16 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.6] — 2026-04-16
+
+### Retraits
+
+- `logos/partners/knowledge/avatar-alliance-foundation.jpg` — remplacé par la version PNG sur fond transparent `avatar-alliance-foundation-black.png` (ajoutée en v1.0.3)
+- `logos/partners/global-ocean/high-seas-alliance.png` — partenaire retiré du Save the Date
+- `logos/partners/global-ocean/deep-sea-conservation-coalition.jpg` — partenaire retiré du Save the Date
+
+> Les URLs pinned sur `@v1.0.2` (templates emailing archivés) restent servies par jsDelivr depuis la version taggée et ne sont pas impactées.
+
 ## [v1.0.0] — 2026-04-10
 
 Release initiale pour la campagne **Save the Date** du Neptune Forum 2026.
