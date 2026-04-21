@@ -2,6 +2,16 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.7] — 2026-04-21
+
+### Ajouts
+
+- `logos/mission-neptune/mission-neptune-klein-blue.png` — wordmark Mission Neptune en Klein Blue (tight crop, 927×226)
+- `logos/mission-neptune/mission-neptune-white-on-klein-blue.png` — wordmark blanc sur fond Klein Blue (1920×362)
+- `logos/mission-neptune/mission-neptune-white-tight.png` — wordmark blanc (tight crop, 927×226)
+
+> Nouvelle déclinaison Klein Blue de la charte Mission Neptune. Les versions existantes (`mission-neptune-blue.png`, `mission-neptune-white.png`) restent disponibles.
+
 ## [v1.0.6] — 2026-04-16
 
 ### Retraits

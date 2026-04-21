@@ -2,17 +2,20 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/`
 
-> Remplacer `v1.0.0` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.7` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
 | Fichier | Poids | URL jsDelivr |
 |---|---|---|
-| `mission-neptune-blue.png` | 72.8 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/logos/mission-neptune/mission-neptune-blue.png` |
-| `mission-neptune-vectorized.png` | 46.0 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/logos/mission-neptune/mission-neptune-vectorized.png` |
-| `mission-neptune-white.png` | 70.3 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/logos/mission-neptune/mission-neptune-white.png` |
+| `mission-neptune-blue.png` | 72.8 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-blue.png` |
+| `mission-neptune-klein-blue.png` | 10.5 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-klein-blue.png` |
+| `mission-neptune-vectorized.png` | 46.0 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-vectorized.png` |
+| `mission-neptune-white.png` | 70.3 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-white.png` |
+| `mission-neptune-white-on-klein-blue.png` | 16.3 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-white-on-klein-blue.png` |
+| `mission-neptune-white-tight.png` | 10.5 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-white-tight.png` |
 
 ## Logo MNHN (partenaire hôte)
 
@@ -98,7 +101,7 @@ Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de pr
 
 ---
 
-**Total** : 50 fichiers
+**Total** : 50 fichiers (v1.0.0) · 53 fichiers (v1.0.7)
 
 ## Vérification d'une URL
 
