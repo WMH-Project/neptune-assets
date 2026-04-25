@@ -2,9 +2,9 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.8/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.9/`
 
-> Remplacer `v1.0.8` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.9` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
@@ -112,7 +112,54 @@ Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de pr
 
 ---
 
-**Total** : 50 fichiers (v1.0.0) · 53 fichiers (v1.0.7) · 57 fichiers (v1.0.8)
+## Photos Expéditions — `photos/expeditions/`
+
+> Sélection curatée de **40 photos sous-marines** issues des expéditions de Prince Hussain Aga Khan / Focused on Nature (2014-2025). Ajoutées en v1.0.9. Chacune en **2000×1333** (parfois plus), de 1 à 9 Mo. Utilisées pour les heros, carousels et illustrations éditoriales du site mission-neptune.com.
+>
+> **Tous crédits : © Prince Hussain Aga Khan / Focused on Nature** — voir `photos/expeditions/CREDITS.md`.
+
+### Couverture géographique (18 lieux)
+
+| Code | Lieu | Nb |
+|---|---|---|
+| AZO | Açores | 2 |
+| BAH | Bahamas | 3 |
+| BRA | Brésil (Manaus) | 2 |
+| COS | Costa Rica | 1 |
+| DOM | Dominique | 3 |
+| EGY | Égypte (Mer Rouge) | 3 |
+| GAL | Galápagos | 3 |
+| IMA | Imatra | 1 |
+| INA | Indonésie (Wakatobi) | 3 |
+| MAL | Maldives | 1 |
+| MEX | Mexique | 3 |
+| MOO | Moorea | 3 |
+| PHI | Philippines | 2 |
+| POL | Polynésie française | 2 |
+| RAJ | Raja Ampat | 2 |
+| SAR | Sardaigne | 1 |
+| TAH | Tahiti | 2 |
+| TON | Tonga | 3 |
+
+### Convention de nommage
+
+`<YYYY-MM><LOC>-<camera-id>[-<process-tags>].jpg` — la convention FON d'origine est conservée pour traçabilité catalogue. Lowercase + tirets uniquement (URL-safe). Exemple :
+
+```
+2024-07egy-dive24-0r8a6273-2.jpg   ← capture 2024-07, Égypte, 24e plongée, ID caméra 0R8A6273
+```
+
+### URL pattern
+
+```
+https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.9/photos/expeditions/<filename>
+```
+
+Liste complète des 40 fichiers : `ls photos/expeditions/` ou voir le tag v1.0.9 sur GitHub.
+
+---
+
+**Total** : 50 fichiers (v1.0.0) · 53 fichiers (v1.0.7) · 57 fichiers (v1.0.8) · 98 fichiers (v1.0.9)
 
 ## Vérification d'une URL
 

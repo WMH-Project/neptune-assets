@@ -2,6 +2,15 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.9] — 2026-04-25
+
+### Ajouts
+
+- `photos/expeditions/` — 40 photos sous-marines curatées issues des expéditions Focused on Nature 2014-2025. Couverture 18 lieux (Açores, Bahamas, Brésil, Costa Rica, Dominique, Égypte, Galápagos, Indonésie, Maldives, Mexique, Moorea, Philippines, Polynésie française, Raja Ampat, Sardaigne, Tahiti, Tonga, Imatra). Toutes en 2000×1333 minimum, 1-9 Mo par fichier, total 109 Mo.
+- `photos/expeditions/CREDITS.md` — crédit unique applicable à tous les fichiers du dossier : © Prince Hussain Aga Khan / Focused on Nature.
+
+> Sélection issue d'une bibliothèque source de 232 photos (416 Mo) hébergée sur SharePoint WMH. Pour ajouter d'autres photos en v1.0.10+, copier depuis `04_Assets/Photos/JPG` (OneDrive) avec lowercase + tirets URL-safe.
+
 ## [v1.0.8] — 2026-04-25
 
 ### Ajouts
