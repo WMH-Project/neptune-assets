@@ -2,6 +2,17 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.8] — 2026-04-25
+
+### Ajouts
+
+- `photos/save-the-date/_full/algue.jpg` — version HD (2000×1333, 3.1 Mo)
+- `photos/save-the-date/_full/clownfish.jpg` — version HD (2000×1334, 1.2 Mo)
+- `photos/save-the-date/_full/dauphin.jpg` — version HD (2000×1333, 1.8 Mo)
+- `photos/save-the-date/_full/tortue.jpg` — version HD (2000×1333, 1.2 Mo)
+
+> Versions originales haute résolution des photos save-the-date, jusque-là conservées dans le repo privé `neptune-landing/assets/photos`. À utiliser pour les hero plein écran et tout fond `100vw` du site mission-neptune.com — les versions racine (1200×800) restent recommandées pour l'email et les vignettes (~120 Ko vs 1-3 Mo).
+
 ## [v1.0.7] — 2026-04-21
 
 ### Ajouts

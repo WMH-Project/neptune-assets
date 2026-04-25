@@ -2,9 +2,9 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.8/`
 
-> Remplacer `v1.0.7` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.8` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
@@ -99,9 +99,20 @@ Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de pr
 | `tortue-600.jpg` | 32.5 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/photos/save-the-date/tortue-600.jpg` |
 | `tortue.jpg` | 97.8 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/photos/save-the-date/tortue.jpg` |
 
+### Photos Save the Date — `_full/` (HD originals, 2000×1333)
+
+> Versions haute résolution publiées en v1.0.8. Source : repo privé `neptune-landing/assets/photos`. À privilégier pour les hero / fond plein écran ; les versions racine restent recommandées pour l'email et les vignettes.
+
+| Fichier | Poids | URL jsDelivr |
+|---|---|---|
+| `_full/algue.jpg` | 3.1 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.8/photos/save-the-date/_full/algue.jpg` |
+| `_full/clownfish.jpg` | 1.2 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.8/photos/save-the-date/_full/clownfish.jpg` |
+| `_full/dauphin.jpg` | 1.8 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.8/photos/save-the-date/_full/dauphin.jpg` |
+| `_full/tortue.jpg` | 1.2 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.8/photos/save-the-date/_full/tortue.jpg` |
+
 ---
 
-**Total** : 50 fichiers (v1.0.0) · 53 fichiers (v1.0.7)
+**Total** : 50 fichiers (v1.0.0) · 53 fichiers (v1.0.7) · 57 fichiers (v1.0.8)
 
 ## Vérification d'une URL
 
