@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.11] — 2026-04-27
+
+### Modifications
+
+- `graphics/bathymetric/bathymetric-{corner,dense,basin}.png` — recomposed with a proper alpha channel (lines opaque, background transparent). The v1.0.10 export had alpha=255 everywhere which made the file unusable as a CSS `mask-image`. v1.0.11 fixes this so a single asset can be recolored downstream via `mask-image` + `background-color`. RGB stays at white (255,255,255) so luminance-mode fallback also works.
+
 ## [v1.0.10] — 2026-04-27
 
 ### Ajouts

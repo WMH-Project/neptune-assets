@@ -2,9 +2,9 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.10/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/`
 
-> Remplacer `v1.0.10` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.11` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
@@ -159,17 +159,17 @@ Liste complète des 40 fichiers : `ls photos/expeditions/` ou voir le tag v1.0.9
 
 ---
 
-**Total** : 50 fichiers (v1.0.0) · 53 fichiers (v1.0.7) · 57 fichiers (v1.0.8) · 98 fichiers (v1.0.9) · 101 fichiers (v1.0.10)
+**Total** : 50 fichiers (v1.0.0) · 53 fichiers (v1.0.7) · 57 fichiers (v1.0.8) · 98 fichiers (v1.0.9) · 101 fichiers (v1.0.10) · 101 fichiers (v1.0.11)
 
 ## Graphical Elements — Bathymetric Lines
 
-Source : Mission Neptune Final Guidelines April 2026, p.43 (« Graphical Elements »). Isolignes topographiques signature de la marque, à appliquer **uniquement sur fonds unis ou blancs**, jamais sur photo. Lignes natives en gris clair `#F8F8F8` — recoloration côté consommateur via `mask-image` CSS (token contextuel : blanc sur IKB/Gold, terracotta `#C29F80` sur Seafoam, IKB sur blanc).
+Source : Mission Neptune Final Guidelines April 2026, p.43 (« Graphical Elements »). Isolignes topographiques signature de la marque, à appliquer **uniquement sur fonds unis ou blancs**, jamais sur photo. Lignes en blanc avec un canal alpha proportionnel à la densité de chaque ligne — recoloration côté consommateur via `mask-image` CSS (token contextuel : blanc sur IKB/Gold, terracotta `#C29F80` sur Seafoam, IKB sur blanc). Depuis v1.0.11 le fond est correctement transparent (avant : blanc opaque, mask CSS inutilisable).
 
 | Composition | Poids | URL jsDelivr |
 |---|---|---|
-| `bathymetric-corner.png` (cluster bas-gauche, 50% top-right vide) | 102 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.10/graphics/bathymetric/bathymetric-corner.png` |
-| `bathymetric-dense.png` (carte layered, boucle concentrique top-left) | 117 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.10/graphics/bathymetric/bathymetric-dense.png` |
-| `bathymetric-basin.png` (grande dépression centrale, contour sparse) | 84 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.10/graphics/bathymetric/bathymetric-basin.png` |
+| `bathymetric-corner.png` (cluster bas-gauche, 50% top-right vide) | 57 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/graphics/bathymetric/bathymetric-corner.png` |
+| `bathymetric-dense.png` (carte layered, boucle concentrique top-left) | 55 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/graphics/bathymetric/bathymetric-dense.png` |
+| `bathymetric-basin.png` (grande dépression centrale, contour sparse) | 38 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/graphics/bathymetric/bathymetric-basin.png` |
 
 Tous en 841×595 RGBA, fond transparent.
 
