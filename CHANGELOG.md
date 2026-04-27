@@ -2,6 +2,16 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.10] — 2026-04-27
+
+### Ajouts
+
+- `graphics/bathymetric/bathymetric-corner.png` — cluster bas-gauche avec petite boucle fermée centrale, 50% top-right vide (102 Ko, 841×595).
+- `graphics/bathymetric/bathymetric-dense.png` — carte topographique dense, layered, boucle concentrique top-left (117 Ko, 841×595).
+- `graphics/bathymetric/bathymetric-basin.png` — grande dépression centrale entourée de contours sparse (84 Ko, 841×595).
+
+> Source : Mission Neptune Final Guidelines April 2026, section « Graphical Elements » p.43. Trois compositions topographiques signature à appliquer uniquement sur fonds unis ou blancs (jamais sur photo). Lignes natives `#F8F8F8` — recoloration côté consommateur via `mask-image` CSS (blanc sur IKB/Gold, terracotta `#C29F80` sur Seafoam, IKB sur blanc).
+
 ## [v1.0.9] — 2026-04-25
 
 ### Ajouts
