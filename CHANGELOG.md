@@ -2,6 +2,17 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.15] — 2026-04-28
+
+### Ajouts
+
+- `photos/initiatives/neptune-expeditions.jpg` — méduse rouge profonde sur fond noir avec lignes topologie (1410 Ko, portrait). Carte 01/04 du bloc « Quatre activités fondatrices » côté site mission-neptune.com → Neptune Expeditions.
+- `photos/initiatives/neptune-fellows.jpg` — requin océanique escorté de poissons-pilote sur bleu vif, lignes topologie ambrées (1080 Ko, portrait). Carte 02/04 → Neptune Fellows.
+- `photos/initiatives/neptune-forum.jpg` — silhouette de dauphin sous une trame topologique sur bleu clair (937 Ko, portrait). Carte 03/04 → Neptune Forum.
+- `photos/initiatives/neptune-explorers-galleries.jpg` — duo de requins remora sur fond très sombre, lignes topologie iridescentes (947 Ko, portrait). Carte 04/04 → Neptune Explorers Galleries.
+
+> Source : OneDrive WMH `_STD_WORK/Brand/Mission Neptune_4Initiatives-0X.jpg`. Layout éditorial signature de la marque (image4.jpeg du brief FBB) — chaque photo embarque déjà les lignes topologie + une zone négative top-left pour accueillir le numéro et le titre.
+
 ## [v1.0.14] — 2026-04-28
 
 ### Ajouts

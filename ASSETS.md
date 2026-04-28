@@ -2,9 +2,9 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.15/`
 
-> Remplacer `v1.0.14` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.15` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
@@ -38,6 +38,15 @@ Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de pr
 | `neptune-dome.jpg` (Dôme Neptune sur le parvis du Jardin des Plantes) | 202 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/photos/venues/neptune-dome.jpg` |
 | `verniquet.webp` (Amphithéâtre Verniquet, configuration colloque) | 38 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/photos/venues/verniquet.webp` |
 | `grande-galerie.webp` (nef de la Grande Galerie de l'Évolution) | 284 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/photos/venues/grande-galerie.webp` |
+
+## Photos « Quatre activités fondatrices » (Mission Neptune)
+
+| Fichier | Poids | URL jsDelivr |
+|---|---|---|
+| `neptune-expeditions.jpg` (méduse rouge, dark) | 1.4 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.15/photos/initiatives/neptune-expeditions.jpg` |
+| `neptune-fellows.jpg` (requin océanique, bleu vif) | 1.1 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.15/photos/initiatives/neptune-fellows.jpg` |
+| `neptune-forum.jpg` (dauphin silhouette, bleu clair) | 938 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.15/photos/initiatives/neptune-forum.jpg` |
+| `neptune-explorers-galleries.jpg` (requins remora, dark) | 948 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.15/photos/initiatives/neptune-explorers-galleries.jpg` |
 
 ## Logo MNHN (partenaire hôte)
 
