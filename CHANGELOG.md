@@ -2,6 +2,17 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.12] — 2026-04-28
+
+### Ajouts
+
+- `logos/mission-neptune/mission-neptune-picto-white.png` — picto seul (3 vagues) en blanc sur fond transparent, 1080×1080. Fournit la marque sans wordmark pour les usages réduits (favicon, app-icon, social square). Servir composé sur fond foncé (recommandé : `#111F4A` surface-deep).
+- `logos/mission-neptune-forum/mission-neptune-forum-rgb.png` — lockup officiel « Mission Neptune | Forum » en couleurs RGB, 2048×~1500 (extrait de `Mission Neptune_FORUM_Logo_RGB.ai`).
+- `logos/mission-neptune-forum/mission-neptune-forum-bw.png` — même lockup en noir et blanc (extrait de `Mission Neptune_FORUM_Logo_Bnw_RGB.ai`).
+- `posters/neptune-forum-2026.png` — affiche officielle Neptune Forum 2026 (« Les Rêves de l'Océan », du 6 au 8 juin 2026 au MNHN), 841×1190, ~1.2 Mo. Carries event lockup, dates, public schedule and partner row — utilisable tel quel comme vignette portrait sur la page Forum.
+
+> Sources : OneDrive WMH `_STD_WORK/Brand/OPEN FILE/BRAND ELEMENTS/`. PNG dérivés des `.ai` originaux (à conserver côté Brand pour ré-exports vectoriels).
+
 ## [v1.0.11] — 2026-04-27
 
 ### Modifications

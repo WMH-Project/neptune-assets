@@ -2,9 +2,9 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.12/`
 
-> Remplacer `v1.0.11` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.12` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
@@ -12,10 +12,24 @@ Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de pr
 |---|---|---|
 | `mission-neptune-blue.png` | 72.8 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-blue.png` |
 | `mission-neptune-klein-blue.png` | 10.5 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-klein-blue.png` |
+| `mission-neptune-picto-white.png` | 55.5 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.12/logos/mission-neptune/mission-neptune-picto-white.png` |
 | `mission-neptune-vectorized.png` | 46.0 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-vectorized.png` |
 | `mission-neptune-white.png` | 70.3 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-white.png` |
 | `mission-neptune-white-on-klein-blue.png` | 16.3 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-white-on-klein-blue.png` |
 | `mission-neptune-white-tight.png` | 10.5 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.7/logos/mission-neptune/mission-neptune-white-tight.png` |
+
+## Logo Mission Neptune | Forum (lockup événement)
+
+| Fichier | Poids | URL jsDelivr |
+|---|---|---|
+| `mission-neptune-forum-rgb.png` | 85.0 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.12/logos/mission-neptune-forum/mission-neptune-forum-rgb.png` |
+| `mission-neptune-forum-bw.png` | 83.1 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.12/logos/mission-neptune-forum/mission-neptune-forum-bw.png` |
+
+## Affiches & posters
+
+| Fichier | Poids | URL jsDelivr |
+|---|---|---|
+| `neptune-forum-2026.png` | 1.2 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.12/posters/neptune-forum-2026.png` |
 
 ## Logo MNHN (partenaire hôte)
 
