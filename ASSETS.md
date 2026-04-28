@@ -2,9 +2,9 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.12/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.13/`
 
-> Remplacer `v1.0.12` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.13` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
@@ -184,8 +184,9 @@ Source : Mission Neptune Final Guidelines April 2026, p.43 (« Graphical Element
 | `bathymetric-corner.png` (cluster bas-gauche, 50% top-right vide) | 57 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/graphics/bathymetric/bathymetric-corner.png` |
 | `bathymetric-dense.png` (carte layered, boucle concentrique top-left) | 55 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/graphics/bathymetric/bathymetric-dense.png` |
 | `bathymetric-basin.png` (grande dépression centrale, contour sparse) | 38 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.11/graphics/bathymetric/bathymetric-basin.png` |
+| `bathymetric-cluster.png` (cluster central dense, **3508×2480 hi-res**) | 2,4 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.13/graphics/bathymetric/bathymetric-cluster.png` |
 
-Tous en 841×595 RGBA, fond transparent.
+Les trois premières compositions sont en 841×595 RGBA (fond transparent). La quatrième (`-cluster`) est la version haute résolution introduite en v1.0.13 — lignes très fines, exploitable sur grand écran sans pixelisation, à utiliser à faible opacité (~0.18 sur sombre, ~0.30 sur clair).
 
 ## Vérification d'une URL
 

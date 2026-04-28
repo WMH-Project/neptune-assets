@@ -2,6 +2,14 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.13] — 2026-04-28
+
+### Ajouts
+
+- `graphics/bathymetric/bathymetric-cluster.png` — variante haute résolution du cluster topographique central (3508×2480, ~2,4 Mo). Lignes en gris clair (~RGB 170/172/175) sur fond transparent — exploitable directement comme `<img>` à faible opacité, ou comme `mask-image` (alpha-only) pour une recoloration côté CSS. Remplace l'usage de `bathymetric-dense.png` (841×595) côté site mission-neptune.com pour les fonds de section plein-écran où la basse résolution se voyait pixelisée. Les autres fichiers `bathymetric-{corner,dense,basin}.png` restent en place pour les usages email/print et toute consommation pinned aux versions antérieures.
+
+> Source : Final Guidelines April 2026 — section « Graphical Elements ». Lignes très fines : prévoir une opacité minimale de ~0.18 sur fond sombre (sinon invisible) et plafonnée à ~0.35 sur fond clair (sinon trop bruyant).
+
 ## [v1.0.12] — 2026-04-28
 
 ### Ajouts
