@@ -2,9 +2,9 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production (tag `v1.0.0`).
 
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.13/`
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/`
 
-> Remplacer `v1.0.13` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
+> Remplacer `v1.0.14` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main`).
 
 ## Logos Mission Neptune
 
@@ -30,6 +30,14 @@ Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de pr
 | Fichier | Poids | URL jsDelivr |
 |---|---|---|
 | `neptune-forum-2026.png` | 1.2 Mo | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.12/posters/neptune-forum-2026.png` |
+
+## Photos des lieux Forum 2026
+
+| Fichier | Poids | URL jsDelivr |
+|---|---|---|
+| `neptune-dome.jpg` (Dôme Neptune sur le parvis du Jardin des Plantes) | 202 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/photos/venues/neptune-dome.jpg` |
+| `verniquet.webp` (Amphithéâtre Verniquet, configuration colloque) | 38 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/photos/venues/verniquet.webp` |
+| `grande-galerie.webp` (nef de la Grande Galerie de l'Évolution) | 284 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.14/photos/venues/grande-galerie.webp` |
 
 ## Logo MNHN (partenaire hôte)
 

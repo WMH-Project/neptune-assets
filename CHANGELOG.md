@@ -2,6 +2,16 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.14] — 2026-04-28
+
+### Ajouts
+
+- `photos/venues/neptune-dome.jpg` — photo du Dôme Neptune monté sur le parvis du Jardin des Plantes devant la Grande Galerie de l'Évolution (1600×873, ~202 Ko, source Mission Neptune avril 2026). Utilisée sur le bloc « Ocean Dreams – Stories of Hope » de la programmation publique.
+- `photos/venues/verniquet.webp` — photo de l'amphithéâtre Verniquet en configuration colloque (676×450, ~38 Ko). Récupérée depuis `public/venues/` du site mission-neptune-website pour mutualisation. Utilisée sur le bloc « Cinéma des Explorateurs ».
+- `photos/venues/grande-galerie.webp` — photo de la nef centrale de la Grande Galerie de l'Évolution avec la procession des animaux (599×275, ~284 Ko). Récupérée depuis `public/venues/` du site. Utilisée sur le bloc « Les Botos, esprits de l'Amazone ».
+
+> Source : photos institutionnelles MNHN + photo terrain Mission Neptune. Les versions servies localement par mission-neptune-website peuvent désormais être remplacées par les URLs jsDelivr correspondantes.
+
 ## [v1.0.13] — 2026-04-28
 
 ### Ajouts
