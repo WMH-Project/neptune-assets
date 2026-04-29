@@ -2,6 +2,14 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.16] — 2026-04-29
+
+### Ajouts
+
+- `photos/expeditions/2021-08dom-80a0965-mike-v3-2.jpg` — cachalot escorté en surface, Dominique 2021-08, série DOM_80A0965 (« Mike »), 2000×1334 paysage (~1265 Ko). Crédit © Prince Hussain Aga Khan / Focused on Nature. Fournit l'arrière-plan plein-écran du hero `/the-forum` (paysage pleine largeur en remplacement de l'affiche). Le chemin est déjà référencé en production depuis le commit recette FBB du 2026-04-29 — cette release fournit le binaire manquant.
+
+> Source : OneDrive WMH `04_Assets/Photos/JPG/2021-08DOM_80A0965_MIKE_V3 OK-2.jpg`. Renommé en kebab-case selon la convention du repo (lowercase, dashes, suffixe `-2` conservé pour la version retouchée).
+
 ## [v1.0.15] — 2026-04-28
 
 ### Ajouts
