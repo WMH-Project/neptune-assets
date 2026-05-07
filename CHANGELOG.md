@@ -2,6 +2,14 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.21] — 2026-05-07
+
+### Ajouts
+
+- `photos/expeditions/2023-11egy-0r8a7270-2.jpg` — Égypte (mer Rouge) 2023-11, série EGY_0R8A7270, 2000×1334 paysage (~1,9 Mo). Crédit © Prince Hussain Aga Khan / Focused on Nature. Utilisée pour le hero de la page Press (`/press`) du site mission-neptune.com.
+
+> Source : OneDrive WMH `04_Assets/Photos/JPG/`. Renommé en kebab-case selon la convention du repo.
+
 ## [v1.0.20] — 2026-05-07
 
 ### Ajouts
