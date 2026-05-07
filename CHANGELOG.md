@@ -2,6 +2,17 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.20] — 2026-05-07
+
+### Ajouts
+
+- `photos/expeditions/2017-05phi-j11a7756-2-forum.jpg` — Philippines 2017-05, série PHI_J11A7756 (« Forum »), 2000×1333 paysage (~1,0 Mo). Crédit © Prince Hussain Aga Khan / Focused on Nature.
+- `photos/expeditions/2019-04bah-6l1a6227-v4-rgb-hr-2-reves-ocean.jpg` — Bahamas 2019-04, série BAH_6L1A6227 V4 RGB-HR (« Rêves d'Océan »), 2000×1333 paysage (~1,6 Mo). Crédit © Prince Hussain Aga Khan / Focused on Nature.
+- `photos/expeditions/2015-08raj-j11a8591-2-2-nexus.jpg` — Raja Ampat 2015-08, série RAJ_J11A8591 (« Nexus »), 1334×2000 portrait (~1,9 Mo). Crédit © Prince Hussain Aga Khan / Focused on Nature.
+- `photos/expeditions/2017-05phi-j11a9194-2-reveler-inconnu.jpg` — Philippines 2017-05, série PHI_J11A9194 (« Révéler l'Inconnu »), 2000×1333 paysage (~606 Ko). Crédit © Prince Hussain Aga Khan / Focused on Nature.
+
+> Source : OneDrive WMH `04_Assets/Photos/JPG/`. Renommés en kebab-case selon la convention du repo (lowercase, dashes, suffixe thématique conservé pour traçabilité).
+
 ## [v1.0.16] — 2026-04-29
 
 ### Ajouts
