@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.23] — 2026-05-11
+
+### Ajouts
+
+- `logos/partners/knowledge/explorers-club.jpg` — emblème circulaire The Explorers Club (étoile rouge à 8 branches sur fond crème, fleur-de-lys au sommet), 400×400 (~22 Ko). Demandé par Daria (Mission Neptune) pour le bandeau « Mission Partners » de l'invitation Neptune Forum (`forum-invitation-stakeholders-v3.html`). Source : avatar X/Twitter @ExplorersClub, fourni par le client le 2026-05-11.
+
 ## [v1.0.21] — 2026-05-07
 
 ### Ajouts
