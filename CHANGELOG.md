@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.0.34] — 2026-05-14
+
+### Modifications
+
+- `logos/partners/founding/_tight/tsao-pao-chee-group.png` (+ variante non-`_tight`) — remplacement par le nouveau brand signature TPC horizontal (sceau rouge + mot-marque « TPC » à droite), 3508×1620, fichier source `TPC_BrandSig_H_RGB_FC.png` fourni par le client. L'ancien fichier était une composition verticale (sceau au-dessus, texte « TPC » dessous, 144×199). À noter : le `heightFor` override de `Tsao Pao Chee` dans `mission-neptune-website/src/data/partners.ts` (desktop 36 / mobile 30) avait été tuné pour la version verticale — vérifier l'équilibre visuel dans le bandeau Founding avec ce nouveau ratio horizontal (~2.16:1, proche de Focused on Nature).
+
 ## [v1.0.23] — 2026-05-11
 
 ### Ajouts
