@@ -55,6 +55,9 @@ __pycache__/
 .venv/
 venv/
 
+# Email signatures local preview (chemins images relatifs, pas pour CDN)
+email-signatures/preview.html
+
 # Node (build scripts)
 node_modules/
 npm-debug.log
