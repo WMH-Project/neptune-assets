@@ -6,7 +6,7 @@ Outlook Web, Apple Mail and Gmail. All images are referenced via the jsDelivr CD
 pointing to a versioned tag of the neptune-assets repo.
 
 Usage:  python3 generate.py [CDN_TAG]
-        (default tag: v1.1.0)
+        (default tag: v1.2.0)
 """
 
 import sys
@@ -52,6 +52,15 @@ PEOPLE = [
         "phone_display": "+33 6 29 99 58 72",
         "phone_link": "+33629995872",
         "email": "teodora.stojilkovic@mission-neptune.com",
+    },
+    {
+        "slug": "begards",
+        "name": "Jade Bégards",
+        "role_fr": "Chargée de Projet",
+        "role_en": "Project Officer",
+        "phone_display": "+33 7 87 36 59 52",
+        "phone_link": "+33787365952",
+        "email": "secretariat@mission-neptune.com",
     },
 ]
 
@@ -178,7 +187,7 @@ def permanente_html(p: dict, cdn: str) -> str:
 
 
 def main():
-    tag = sys.argv[1] if len(sys.argv) > 1 else "v1.1.0"
+    tag = sys.argv[1] if len(sys.argv) > 1 else "v1.2.0"
     cdn = CDN_BASE.format(tag=tag)
     forum_dir = ROOT / "forum"
     perm_dir = ROOT / "permanente"

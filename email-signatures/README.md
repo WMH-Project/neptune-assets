@@ -2,7 +2,7 @@
 
 Signatures HTML pour Outlook (Windows, Mac, Web), Apple Mail et Gmail.
 
-8 signatures = 4 collaborateurs × 2 variantes :
+10 signatures = 5 collaborateurs × 2 variantes :
 
 - **Forum** (bleue) — version événementielle, met en avant le Neptune Forum 6-8 juin 2026.
 - **Permanente** (blanche) — version institutionnelle pour le reste de l'année.
@@ -25,11 +25,13 @@ email-signatures/
 │   └── play-icon.png                 # Picto play "VOIR LE FILM" Forum (14×14)
 ├── forum/
 │   ├── adiceam.htm
+│   ├── begards.htm
 │   ├── kisseleva.htm
 │   ├── lepivain.htm
 │   └── stojilkovic.htm
 └── permanente/
     ├── adiceam.htm
+    ├── begards.htm
     ├── kisseleva.htm
     ├── lepivain.htm
     └── stojilkovic.htm
@@ -58,25 +60,26 @@ email-signatures/
 
 ## URLs CDN
 
-Toutes les URLs ci-dessous référencent le tag `v1.1.0`. Ne jamais utiliser `@main` en production (cf. règle repo).
+Toutes les URLs ci-dessous référencent le tag `v1.2.0`. Ne jamais utiliser `@main` en production (cf. règle repo).
 
 ### Signatures HTML (téléchargement direct)
 
 | Collaborateur | Forum | Permanente |
 |---|---|---|
-| Ashok Adicéam | [forum/adiceam.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/forum/adiceam.htm) | [permanente/adiceam.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/permanente/adiceam.htm) |
-| Daria Kisseleva | [forum/kisseleva.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/forum/kisseleva.htm) | [permanente/kisseleva.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/permanente/kisseleva.htm) |
-| Anne-Sophie Le Pivain | [forum/lepivain.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/forum/lepivain.htm) | [permanente/lepivain.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/permanente/lepivain.htm) |
-| Teodora Stojilkovic | [forum/stojilkovic.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/forum/stojilkovic.htm) | [permanente/stojilkovic.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/permanente/stojilkovic.htm) |
+| Ashok Adicéam | [forum/adiceam.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/forum/adiceam.htm) | [permanente/adiceam.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/permanente/adiceam.htm) |
+| Jade Bégards | [forum/begards.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/forum/begards.htm) | [permanente/begards.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/permanente/begards.htm) |
+| Daria Kisseleva | [forum/kisseleva.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/forum/kisseleva.htm) | [permanente/kisseleva.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/permanente/kisseleva.htm) |
+| Anne-Sophie Le Pivain | [forum/lepivain.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/forum/lepivain.htm) | [permanente/lepivain.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/permanente/lepivain.htm) |
+| Teodora Stojilkovic | [forum/stojilkovic.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/forum/stojilkovic.htm) | [permanente/stojilkovic.htm](https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/permanente/stojilkovic.htm) |
 
 ### Images (référencées automatiquement par les signatures)
 
-- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/images/forum-panel-left.jpg`
-- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/images/permanente-logo-left.png`
-- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/images/permanente-reef-right.jpg`
-- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/images/icon-phone.png`
-- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/images/icon-email.png`
-- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.0/email-signatures/images/play-icon.png`
+- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/images/forum-panel-left.jpg`
+- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/images/permanente-logo-left.png`
+- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/images/permanente-reef-right.jpg`
+- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/images/icon-phone.png`
+- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/images/icon-email.png`
+- `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.0/email-signatures/images/play-icon.png`
 
 ## Liens présents dans les signatures
 
