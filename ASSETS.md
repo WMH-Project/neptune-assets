@@ -2,8 +2,8 @@
 
 Liste complète des assets du repo `neptune-assets` avec leur URL jsDelivr de production.
 
-**Tag courant** : `v1.2.2` — ajoute le logo `one-ocean-expedition.jpg` (Global Ocean), à droite d'Europe Jacques Delors.
-**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.2/`
+**Tag courant** : `v1.2.3` — remplace `one-ocean-expedition.jpg` par `one-ocean-expedition.png` (source HD, fond transparent).
+**Base URL** : `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.3/`
 
 > Remplacer `v1.1.1` par la version cible lors des releases suivantes. Utiliser uniquement des tags versionnés en production (jamais `@main` — jsDelivr cache `@main` ~12 h de façon imprévisible).
 >
@@ -118,7 +118,7 @@ Tier interne nommé `knowledge` (legacy folder name) mais affiché « Mission Pa
 
 ## Global Ocean Partners (6) — `logos/partners/global-ocean/`
 
-DSCC (`deep-sea-conservation-coalition.jpg`) supprimé en v1.0.6 — toujours absent. High Seas Alliance restauré en v1.1.1. One Ocean Expedition ajouté en v1.2.2.
+DSCC (`deep-sea-conservation-coalition.jpg`) supprimé en v1.0.6 — toujours absent. High Seas Alliance restauré en v1.1.1. One Ocean Expedition ajouté en v1.2.2 (.jpg), upgradé en .png HD transparent en v1.2.3.
 
 | Fichier | Poids | URL jsDelivr |
 |---|---|---|
@@ -127,7 +127,7 @@ DSCC (`deep-sea-conservation-coalition.jpg`) supprimé en v1.0.6 — toujours ab
 | `mission-blue.png` | 16.8 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.1/logos/partners/global-ocean/mission-blue.png` |
 | `ocean-climate-platform.jpg` | 4.0 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.1/logos/partners/global-ocean/ocean-climate-platform.jpg` |
 | `oceano-azul-foundation.jpg` | 3.6 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.1.1/logos/partners/global-ocean/oceano-azul-foundation.jpg` |
-| `one-ocean-expedition.jpg` | 44.1 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.2/logos/partners/global-ocean/one-ocean-expedition.jpg` |
+| `one-ocean-expedition.png` | 45.0 Ko | `https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.2.3/logos/partners/global-ocean/one-ocean-expedition.png` |
 
 ## OceanEye (1) — `logos/partners/oceaneye/`
 
@@ -328,6 +328,7 @@ Assets dédiés aux signatures email Mission Neptune (gabarit HTML séparé).
 | v1.0.6 | — | **drop** Avatar JPG obsolète + High Seas Alliance + DSCC |
 | v1.1.1 | 172 | **restore** High Seas Alliance (Global Ocean tier) |
 | v1.2.2 | — | +One Ocean Expedition (Global Ocean tier) |
+| v1.2.3 | — | One Ocean Expedition: .jpg → .png HD transparent |
 
 ---
 
