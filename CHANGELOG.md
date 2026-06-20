@@ -2,6 +2,15 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.3.0] — 2026-06-20
+
+### Ajouts
+
+- `reports/neptune-forum-2026-report-fr.pdf` — Rapport Neptune Forum 2026, édition française, 14 pages A4 (~9,4 Mo). Affiché sur la page « speakers-pictures » du site (`/[locale]/the-forum/speakers-pictures#report`) dans un lecteur PDF intégré (carte couverture → modale plein écran).
+- `reports/neptune-forum-2026-report-en.pdf` — Neptune Forum 2026 report, édition anglaise, 14 pages A4 (~9,3 Mo).
+- `reports/neptune-forum-2026-report-fr-cover.webp` — Couverture (page 1) de l'édition FR, 1200 px de large (~150 Ko), vignette de la carte rapport.
+- `reports/neptune-forum-2026-report-en-cover.webp` — Couverture (page 1) de l'édition EN, 1200 px de large (~151 Ko).
+
 ## [v1.0.34] — 2026-05-14
 
 ### Modifications
