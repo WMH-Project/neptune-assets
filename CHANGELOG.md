@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.3.1] — 2026-06-22
+
+### Ajouts
+
+- `logos/partners/knowledge/deep-blue-voyager-2035.png` — logo Deep Blue Voyager 2035 (深蓝百万里 « Deep Blue Voyager », expédition océanique mondiale 2026-2035), sceau circulaire bleu + mot-marque bilingue, fond blanc, 1600×555 (~96 Ko). Ajouté au bandeau « Mission Partners » du site (`src/data/partners.ts`), intercalé entre CNRS et Fujian Ocean Innovation Center. Pas de site web propre → lien vers la page d'action OceanDecade : https://oceandecade.org/fr/actions/deep-blue-voyager-2035-global-ocean-expedition/. Source : fichier client `白底蓝字.jpg` (4188×1468 JPG), détouré (marges blanches) puis recompressé en PNG 256 couleurs selon la convention du repo.
+
 ## [v1.3.0] — 2026-06-20
 
 ### Ajouts
