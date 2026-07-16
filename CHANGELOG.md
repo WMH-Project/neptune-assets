@@ -2,6 +2,13 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.3.2] — 2026-07-16
+
+### Ajouts
+
+- `graphics/mission-neptune-scientific-challenges.png` — infographie « Mission Neptune's Scientific Challenges », 8 défis scientifiques (01 Mapping of Habitats → 08 Genetic Resources) en 2 rangées de 4, pastilles pictos colorées sur fond bathymétrique bleu nuit, 1920×1080 (~425 Ko). Affichée sur `/the-mission` juste après le bandeau partenaires, calée sur la largeur de la carte blanche (960 px max). Source : fichier client `MN_scientific_Challenges.png` (1920×1080 PNG 24 bits, 1,4 Mo), recompressé en PNG 256 couleurs selon la convention du repo.
+- **Réserve** : le fichier source comporte un calque de texte français résiduel (« Fédérer les équipes autour d'une … environnement stimulant. ») qui transparaît en sombre derrière le bloc 08 « Genetic Resources ». Défaut connu, validé en l'état par Gilles le 2026-07-16 — remplacer le PNG (même chemin, bump de version) dès réception d'un export corrigé.
+
 ## [v1.3.1] — 2026-06-22
 
 ### Ajouts
