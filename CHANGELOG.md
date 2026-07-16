@@ -2,6 +2,21 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.3.3] — 2026-07-16
+
+### Ajouts
+
+Remaniement du bandeau partenaires demandé par Gilles le 2026-07-16 (image annotée). Tous les fichiers sources fournis dans `~/Downloads/Logos`, détourés (marges blanches) puis recompressés en PNG 256 couleurs selon la convention du repo.
+
+- `logos/partners/founding/_tight/dalio-philanthropies.png` — logo Dalio Philanthropies, mot-marque bleu sur fond blanc, 712×96 (~21 Ko). **Entre en Founding Partners à la place d'OceanX**, qui descend en Mission Partners. Source : `Dalio_Philantropies_logo.jpg` (800×418).
+- `logos/partners/knowledge/oceanx.png` — logomark OceanX (mot-marque bleu nuit), 2132×344 (~52 Ko). Nouvelle déclinaison horizontale pour la rangée Mission Partners ; le fichier `founding/_tight/oceanx.png` reste en place mais n'est plus référencé par le site. Source : `OceanX-Logomark-RGB-Blue Logo.jpg` (2116×1111).
+- `logos/partners/knowledge/dhi.png` — logo DHI « The expert in WATER ENVIRONMENTS », vague dégradée bleu→vert au-dessus du sigle gris, lockup vertical avec baseline, 2126×1479 (~121 Ko). Source : `logo_DHI.webp`.
+- `logos/partners/knowledge/ipev.png` — logo Institut polaire français Paul-Émile Victor (IPEV), iceberg bleu + mot-marque, 878×306 (~50 Ko). Source : `logo_IPEV.jpg` (1024×448).
+- `logos/partners/knowledge/nekton.png` — mot-marque Nekton violet, 611×176 (~8 Ko). Source : `logo_NEKTON.webp` (600×163), aplati sur blanc.
+- `logos/partners/knowledge/plastic-odyssey.png` — logo Plastic Odyssey, vagues + mot-marque bleu nuit sur deux lignes, 816×192 (~8 Ko). Source : `logo_PlasticOdyssey.png` (800×176), aplati sur blanc.
+
+**Rappel** : `mission-blue.png` passe de Global Ocean Partners à Mission Partners (en tête de rangée) côté site — l'asset reste sous `logos/partners/global-ocean/`, seul le tier d'affichage change (même précédent qu'One Ocean Expedition en v1.2.x).
+
 ## [v1.3.2] — 2026-07-16
 
 ### Ajouts
