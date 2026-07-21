@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.3.4] — 2026-07-21
+
+### Modifications
+
+- `graphics/mission-neptune-scientific-challenges.png` — nouvelle version (v3) de l'infographie des défis scientifiques, fond bleu nuit avec lignes topographiques (au lieu du fond clair précédent), 1920×1080 (~566 Ko). Même chemin, l'artwork est remplacé — le site le déplace dans la section « Pourquoi Mission Neptune » de /the-mission. Source : `MN_scientific_Challenges_3.png` (~/Downloads).
+
 ## [v1.3.3] — 2026-07-16
 
 ### Ajouts
