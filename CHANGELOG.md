@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.3.5] — 2026-07-21
+
+### Modifications
+
+- `graphics/mission-neptune-scientific-challenges.png` — v4 de l'infographie : mêmes maquette et fond bleu nuit que la v3, icônes réattribuées aux bons défis (poissons → Abundance, volcan → Seamounts, iceberg → Polar, cheminée → Hydrothermal, herbier → Blue Carbon, carotte ADN → Paleogenomic), 1920×1080 (~565 Ko). Source : `MN_scientific_Challenges_4.png` (~/Downloads).
+
 ## [v1.3.4] — 2026-07-21
 
 ### Modifications
