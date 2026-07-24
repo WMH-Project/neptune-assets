@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.3.7] — 2026-07-24
+
+### Modifications
+
+- `graphics/mission-neptune-scientific-challenges-fr.png` — version mise à jour de l'infographie « Défis scientifiques de Mission Neptune », 1600×900 (~1.06 Mo). Remplace la version v1.3.6 fournie hier. Source : image fournie par Gilles le 2026-07-24.
+
 ## [v1.3.6] — 2026-07-23
 
 ### Ajouts
