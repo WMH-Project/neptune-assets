@@ -2,6 +2,17 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.4.14] — 2026-08-24
+
+### Ajouts
+
+- `logos/partners/knowledge/fondation-jacques-rougerie.png` — logo Fondation Jacques Rougerie / Institut de France, monogramme trois voiles + mot-marque noir, aplati sur blanc, 1602×965 (~33 Ko). Ajouté au mur Mission Partners du site entre DHI et Fujian Ocean Innovation Center. Source : `Logo_Fondation.png` (~/Downloads, fourni par Gilles le 2026-08-24).
+- `logos/partners/knowledge/pogo.png` — logo POGO (Partnership for Observation of the Global Ocean), mot-marque bleu + voile turquoise + baseline, 2422×1322 (~68 Ko), PNG 256 couleurs. Ajouté au mur Mission Partners entre One Ocean Expedition et OceanX. Source : `POGO-Square-white-bg.png` (~/Downloads, fond blanc carré détouré), fourni par Gilles le 2026-08-24.
+
+### Rappel
+
+- Réordonnancement côté site (image de référence `Logos_Partenaires_FR[30].png`) : OceanX et Plastic Odyssey échangent leurs positions, et `fondation-prince-albert-ii-monaco.png` (v1.4.12) se place désormais entre OceanX et Scripps.
+
 ## [v1.4.13] — 2026-08-24
 
 ### Ajouts
