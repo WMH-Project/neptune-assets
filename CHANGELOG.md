@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.4.13] — 2026-08-24
+
+### Ajouts
+
+- `photos/newsletter/polar-2026/logo-explorers-club-primary-white.png` — logo primaire The Explorers Club (lockup complet « THE EXPLORERS CLUB » + monogramme compas E⊕C), blanc sur fond transparent, 400×314. Version officielle fournie par le client le 2026-08-24 (`EC_logo_Primary_with_Compass white overlay.png`, 6000×4714) ; remplace le monogramme rouge `logo-explorers-club-eoc.png` (v1.4.9) dans l'en-tête du save-the-date Polar et dans le hero de la page site. L'ancien fichier est conservé.
+
 ## [v1.4.12] — 2026-08-24
 
 ### Ajouts
