@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.4.12] — 2026-08-24
+
+### Ajouts
+
+- `logos/partners/knowledge/fondation-prince-albert-ii-monaco.png` — logo Fondation Prince Albert II de Monaco (version FR quadri, 4386×1166, fond transparent). Ajouté au mur Mission Partners du site, entre Plastic Odyssey et Scripps. Source : `FPAII_Fr_quadri.png` (~/Downloads, fourni par Gilles le 2026-08-24).
+
 ## [v1.3.7] — 2026-07-24
 
 ### Modifications
