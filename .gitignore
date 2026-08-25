@@ -62,3 +62,6 @@ email-signatures/preview.html
 node_modules/
 npm-debug.log
 yarn-error.log
+
+# Fichiers de test locaux (non publiés sur le CDN)
+word/_test_*.docx
