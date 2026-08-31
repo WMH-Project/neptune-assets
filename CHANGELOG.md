@@ -2,6 +2,12 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.4.16] — 2026-08-31
+
+### Ajouts
+
+- `logos/partners/knowledge/schmidt-ocean-institute.png` — logo Schmidt Ocean Institute (vague bleue + disques jaune/vert, mot-marque « SCHMIDT / OCEAN INSTITUTE » bleu), aplati sur blanc et recadré au contenu, 693×485 (~61 Ko). Ajouté au mur Mission Partners du site entre Scripps et Sorbonne University Abu Dhabi. Source : `Logo_Schmidt_Ocean_Institute.png` (~/Downloads, 704×708, fourni par Gilles le 2026-08-31) ; site partenaire : https://schmidtocean.org.
+
 ## [v1.4.14] — 2026-08-24
 
 ### Ajouts
