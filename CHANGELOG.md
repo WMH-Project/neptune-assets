@@ -2,6 +2,13 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.4.17] — 2026-09-18
+
+### Ajouts
+
+- `logos/partners/knowledge/tetiaroa-society.png` — logo Tetiaroa Society (motif polynésien + oiseau, mot-marque « TETIAROA SOCIETY » bleu), recadré au contenu, 431×217 (~86 Ko). Ajouté au mur Mission Partners du site entre Fondation Tara Océan et The Explorers Club. Source : `Logo_Tetiaora.jpg` (~/Downloads, 447×447, fourni par Gilles le 2026-09-18) ; site partenaire : https://www.tetiaroasociety.org/fr.
+- `logos/partners/knowledge/under-the-pole.png` — logo Under The Pole (emblème + mot-marque « UNDER THE POLE » + baseline « UNDERWATER SCIENTIFIC EXPLORATION », bleu marine), aplati sur blanc, recadré et réduit à 1600×655 (~94 Ko). Ajouté au mur Mission Partners entre The Explorers Club et WHOI. Source : `LOGO_BLEU_HORIZONTAL_BASELINE-fond-transparent.png` (~/Downloads, 6049×3340, fourni par Gilles le 2026-09-18) ; site partenaire : https://underthepole.org.
+
 ## [v1.4.16] — 2026-08-31
 
 ### Ajouts
