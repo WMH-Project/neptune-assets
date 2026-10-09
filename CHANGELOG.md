@@ -2,6 +2,24 @@
 
 Tous les changements notables de ce repo sont documentés ici. Format inspiré de [Keep a Changelog](https://keepachangelog.com/), versioning [SemVer](https://semver.org/).
 
+## [v1.4.22] — 2026-10-09
+
+### Allègement — limite jsDelivr (50 Mo par tag)
+
+L'arbre pesait 184 Mo au tag v1.4.21 ; jsDelivr répondait `403 Package size exceeded` sur
+certains fichiers neufs à leur première requête (4 des 13 visuels de la newsletter d'octobre).
+Issue de dérogation ouverte chez jsDelivr le 09/10 ; en parallèle, le dépôt repasse sous la limite :
+
+- **66 JPG ré-encodés en place** par `optimize_images.py` (nouveau, à la racine) : JPEG
+  progressif, côté long ≤ 2400 px, ~300 Ko max (450 Ko et ≥ 2000 px pour les 12 photos
+  affichées en héros par le site). Chemins et ratios inchangés : `photos/expeditions/`
+  passe de 126 Mo à ~16 Mo. Exception conservée : `summer-wine/oped-liberation-full.jpg`.
+- **`reports/*.pdf` retirés** (2 × 9,5 Mo, référencés nulle part dans le site ni les emails) ;
+  les couvertures `.webp` restent. Les PDF restent servis aux tags ≤ v1.4.21.
+- Originaux sauvegardés hors dépôt : `~/Projects/mission-neptune-Brevo-archive/neptune-assets-originaux-v1.4.21/`.
+
+Rappel du README : photos ≤ 250 Ko, aucun fichier > 1 Mo — règle à appliquer avant tout commit.
+
 ## [v1.4.17] — 2026-09-18
 
 ### Ajouts
