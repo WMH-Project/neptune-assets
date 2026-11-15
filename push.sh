@@ -21,13 +21,13 @@
 #      sans chemin, seulement les modifications de fichiers déjà suivis
 #   4. lance check_assets.py (poids par image, poids total, emplacement) — bloquant
 #   5. demande confirmation, puis commit + tag poussés ensemble
-#   6. vérifie que jsDelivr sert bien les nouveaux fichiers
+#   6. attend le déploiement Netlify et vérifie que cdn.mission-neptune.com sert les fichiers
 #
 # Prérequis : git configuré, accès en écriture à WMH-Project/neptune-assets, python3.
 
 set -euo pipefail
 
-REPO="WMH-Project/neptune-assets"
+CDN="https://cdn.mission-neptune.com"
 
 # --- arguments --------------------------------------------------------------
 
@@ -154,25 +154,27 @@ git tag -a "$TAG" -m "$MESSAGE"
 # --atomic : la branche et le tag passent ensemble ou pas du tout.
 git push --atomic origin main "$TAG"
 
-# --- vérification jsDelivr --------------------------------------------------
+# --- vérification du CDN ----------------------------------------------------
+# Netlify redéploie à chaque push sur main (une à deux minutes).
 
-BASE="https://cdn.jsdelivr.net/gh/$REPO@$TAG"
 echo
 echo "==> publié : $TAG"
-echo "==> base   : $BASE/"
+echo "==> base   : $CDN/"
+echo "==> attente du déploiement Netlify…"
 
 KO=0
 while IFS= read -r f; do
   [[ -z "$f" ]] && continue
-  code=$(curl -s -o /dev/null -w '%{http_code}' "$BASE/$f" || echo "000")
-  if [[ "$code" != "200" ]]; then
-    # 404 mis en cache avant propagation du tag, ou 403 de taille : purge puis 2e essai
-    curl -s -o /dev/null "https://purge.jsdelivr.net/gh/$REPO@$TAG/$f" || true
-    sleep 3
-    code=$(curl -s -o /dev/null -w '%{http_code}' "$BASE/$f" || echo "000")
-  fi
+  case "$f" in photos/*|logos/*|graphics/*|posters/*|reports/*) ;; *) continue ;; esac
+  case "$f" in *.md) continue ;; esac
+  code=000
+  for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+    code=$(curl -s -o /dev/null -w '%{http_code}' "$CDN/$f" || echo "000")
+    [[ "$code" == "200" ]] && break
+    sleep 15
+  done
   if [[ "$code" == "200" ]]; then
-    echo "    200  $f"
+    echo "    200  $CDN/$f"
   else
     echo "    $code  $f   ← PAS SERVI"
     KO=1
@@ -181,7 +183,7 @@ done <<< "$NEW_FILES"
 
 if [[ $KO -ne 0 ]]; then
   echo
-  echo "⚠ Certains fichiers ne sont pas servis par jsDelivr. Ne pas envoyer d'email"
-  echo "  qui les référence avant d'avoir un 200 (réessayer dans quelques minutes)."
+  echo "⚠ Certains fichiers ne sont pas servis par le CDN. Ne pas envoyer d'email"
+  echo "  qui les référence avant d'avoir un 200 (voir le déploiement dans Netlify)."
   exit 2
 fi

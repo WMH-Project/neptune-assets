@@ -1,5 +1,5 @@
 # Après une fusion sur main qui touche des visuels : crée le tag suivant (vX.Y.Z+1)
-# si le commit n'en porte pas déjà un, puis vérifie que jsDelivr sert les nouveaux fichiers.
+# si le commit n'en porte pas déjà un, puis vérifie que le CDN sert les nouveaux fichiers.
 # push.sh pousse la branche et son tag ensemble : dans ce cas le workflow ne retague pas.
 name: Tag de publication
 
@@ -59,27 +59,26 @@ jobs:
           echo "last=$last" >> "$GITHUB_OUTPUT"
           echo "next=$next" >> "$GITHUB_OUTPUT"
           echo "### Tag publié : \`$next\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "Base : \`https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@$next/\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Base : \`https://cdn.mission-neptune.com/\`" >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Vérifier jsDelivr
+      - name: Vérifier le CDN
         if: steps.tag.outputs.next != ''
         run: |
-          base="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@${{ steps.tag.outputs.next }}"
-          purge="https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@${{ steps.tag.outputs.next }}"
+          base="https://cdn.mission-neptune.com"
           ko=0
           while IFS= read -r f; do
             [ -z "$f" ] && continue
+            case "$f" in *.md) continue ;; esac
             code=000
-            for attempt in 1 2 3 4; do
+            for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
               code=$(curl -s -o /dev/null -w '%{http_code}' "$base/$f" || echo 000)
               [ "$code" = "200" ] && break
-              curl -s -o /dev/null "$purge/$f" || true
               sleep 15
             done
-            echo "$code  $f"
+            echo "$code  $base/$f"
             [ "$code" = "200" ] || ko=1
           done < <(git diff --name-only --diff-filter=AM "${{ steps.tag.outputs.last }}" HEAD -- photos logos graphics posters reports)
           if [ "$ko" -ne 0 ]; then
-            echo "::error::Des fichiers ne sont pas servis par jsDelivr — ne pas envoyer d'email qui les référence."
+            echo "::error::Des fichiers ne sont pas servis par cdn.mission-neptune.com — ne pas envoyer d'email qui les référence."
             exit 1
           fi

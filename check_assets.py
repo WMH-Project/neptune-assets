@@ -9,8 +9,11 @@ Bibliothèque standard seulement : tourne tel quel en CI et en session cloud.
 Code de sortie 0 = publiable, 1 = au moins une erreur.
 
 Ce qui est vérifié :
-  1. poids total de l'arbre publié — jsDelivr refuse les fichiers neufs d'un tag
-     dont l'arbre dépasse 50 Mo (403 « Package size exceeded ») ;
+  1. poids total de l'arbre — affiché pour information. Les visuels sont servis par
+     cdn.mission-neptune.com (Netlify), sans limite de taille. Au-delà de 50 Mo,
+     jsDelivr ne sert plus les fichiers neufs d'un tag : plus rien de nouveau ne
+     doit donc pointer jsDelivr (les emails déjà envoyés, sur d'anciens tags,
+     ne sont pas concernés) ;
   2. poids de chaque fichier AJOUTÉ ou MODIFIÉ depuis la base (les fichiers
      historiques trop lourds sont tolérés tant qu'on n'y touche pas) ;
   3. emplacement, extension et nom des fichiers ajoutés ;
@@ -27,12 +30,7 @@ import sys
 
 # --- Règles -------------------------------------------------------------------
 
-# jsDelivr annonce « 50 MB » sans préciser l'unité : on se cale sur la lecture
-# la plus stricte (50 000 000 octets) et on bloque 1 Mo avant.
-TOTAL_BLOCK = 49_000_000
-TOTAL_WARN = 48_000_000
-
-FILE_MAX = 250 * 1024  # règle du dépôt : 250 Ko par image
+FILE_MAX = 250 * 1024  # règle du dépôt : 250 Ko par image (poids d'un email, vitesse du site)
 
 # Dépassements assumés, à justifier ici même.
 EXCEPTIONS = {
@@ -42,6 +40,8 @@ EXCEPTIONS = {
 
 MEDIA_DIRS = {"photos", "logos", "graphics", "posters", "reports"}
 MEDIA_EXT = {"jpg", "jpeg", "png", "webp", "svg", "gif", "avif"}
+# Documents téléchargeables : seulement dans reports/, sans limite de poids.
+DOC_DIR, DOC_EXT = "reports", {"pdf"}
 OTHER_DIRS = {"docs", "email-signatures", "word", ".github"}
 ROOT_FILES = {
     ".gitignore", "ASSETS.md", "CHANGELOG.md", "CLAUDE.md", "LICENSE", "README.md",
@@ -50,7 +50,7 @@ ROOT_FILES = {
 # Ne doivent jamais partir sur un dépôt public, où qu'ils soient.
 FORBIDDEN_EXT = {
     "sql", "eml", "env", "key", "pem", "xlsx", "xls", "csv",
-    "heic", "tif", "tiff", "psd", "zip", "mp4", "mov", "pdf",
+    "heic", "tif", "tiff", "psd", "zip", "mp4", "mov",
 }
 MEDIA_NAME = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
 
@@ -111,6 +111,8 @@ def check_added(path, errors):
         return
     if name.endswith(".md"):  # crédits, notes
         return
+    if top == DOC_DIR and ext in DOC_EXT:
+        return
     if ext not in MEDIA_EXT:
         errors.append(
             f"{path} : extension .{ext} non servie ici ({', '.join(sorted(MEDIA_EXT))})"
@@ -151,7 +153,9 @@ def main():
         check_added(path, errors)
     for path in added + modified:
         size = sizes.get(path, 0)
-        if size > FILE_MAX and path not in EXCEPTIONS and path.split("/")[0] in MEDIA_DIRS:
+        is_doc = path.split("/")[0] == DOC_DIR and path.rsplit(".", 1)[-1].lower() in DOC_EXT
+        if (size > FILE_MAX and path not in EXCEPTIONS and not is_doc
+                and path.split("/")[0] in MEDIA_DIRS):
             errors.append(
                 f"{path} : {ko(size)}, la limite est {ko(FILE_MAX)} — "
                 "réduis ou recompresse l'image avant de publier"
@@ -165,19 +169,10 @@ def main():
         msg = f"{path} : supprimé ou renommé — un chemin publié ne doit pas disparaître"
         (warnings if args.allow_delete else errors).append(msg)
 
-    if total > TOTAL_BLOCK:
-        errors.append(
-            f"arbre de {mo(total)} : au-delà de {mo(TOTAL_BLOCK)}, jsDelivr refusera les "
-            "nouveaux fichiers de ce tag (limite 50 Mo). Il faut alléger le dépôt d'abord."
-        )
-    elif total > TOTAL_WARN:
-        warnings.append(f"arbre de {mo(total)} : il reste {mo(TOTAL_BLOCK - total)} avant blocage")
-
     delta = total - sum(tree_sizes(base).values())
     print(f"Contrôle : {label}  ←  base {base}")
     print(f"  fichiers : {len(added)} ajouté(s), {len(modified)} modifié(s), {len(deleted)} supprimé(s)")
-    print(f"  arbre    : {mo(total)} ({delta / 1000:+.0f} Ko), "
-          f"marge avant blocage {mo(TOTAL_BLOCK - total)}")
+    print(f"  arbre    : {mo(total)} ({delta / 1000:+.0f} Ko)")
     for w in warnings:
         print(f"  ⚠ {w}")
     for e in errors:

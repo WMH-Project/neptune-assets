@@ -1,5 +1,5 @@
 # Rejoue check_assets.py sur chaque pull request et chaque push sur main :
-# poids par image, poids total de l'arbre (limite jsDelivr), emplacement des fichiers.
+# poids par image, emplacement et type des fichiers, aucun visuel publié modifié ou supprimé.
 name: Contrôle des assets
 
 on:
