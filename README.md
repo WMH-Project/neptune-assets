@@ -1,6 +1,6 @@
 # neptune-assets
 
-CDN versionné pour les assets graphiques de **Mission Neptune / Neptune Forum** — photos, logos, fonts — servis via [jsDelivr](https://www.jsdelivr.com/).
+CDN versionné pour les assets graphiques de **Mission Neptune / Neptune Forum** — photos, logos, fonts — servis par `cdn.mission-neptune.com`.
 
 Mission Neptune est une initiative mondiale lancée à l'UNOC, sous le haut patronage du Président de la République française et en lien avec le Pacte européen pour l'Océan. Le **Neptune Forum — Les rêves du vivant** se tient du **6 au 8 juin 2026** au Muséum national d'Histoire naturelle, Jardin des Plantes, Paris.
 
@@ -8,22 +8,21 @@ Site officiel : [forum.mission-neptune.com](https://forum.mission-neptune.com)
 
 ## Usage
 
-Les assets sont accessibles via jsDelivr à l'URL suivante, avec un tag de version obligatoire :
+Les visuels sont servis par **`https://cdn.mission-neptune.com/<chemin>`**, un site Netlify qui
+publie la branche `main` de ce dépôt (dossiers `photos/`, `logos/`, `graphics/`, `posters/`,
+`reports/`), sans numéro de version :
 
 ```
-https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@<TAG>/<path>
+https://cdn.mission-neptune.com/logos/mission-neptune/mission-neptune-white.png
+https://cdn.mission-neptune.com/photos/newsletter/november-2026/x-pavilion-video.jpg
 ```
 
-**Exemple** :
+Jusqu'en novembre 2026 les visuels étaient servis par jsDelivr à un tag git
+(`cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@vX.Y.Z/...`). Les emails déjà envoyés
+gardent ces adresses : les tags existants ne doivent jamais être supprimés. Plus rien de
+nouveau ne doit pointer jsDelivr (l'arbre dépasse sa limite de 50 Mo par tag).
 
-```
-https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/photos/save-the-date/clownfish-600.jpg
-https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@v1.0.0/logos/mission-neptune/mission-neptune-white.png
-```
-
-> ⚠️ **Ne jamais utiliser `@main`** en production (cache jsDelivr imprévisible de ~12h). Toujours référencer un tag versionné pour bénéficier du cache immuable.
-
-Liste complète des URLs dans [`ASSETS.md`](ASSETS.md).
+Procédure et règles : [`CLAUDE.md`](CLAUDE.md).
 
 ## Structure
 
@@ -63,17 +62,12 @@ Référentiel détaillé (statuts, URLs, contacts) : `../partners/neptune-forum-
 
 ## Règles de publication
 
-1. **Toujours optimiser avant commit** : photos ≤ 250 Ko, JPG progressif. Version `-600.jpg` obligatoire pour tout visuel utilisé en email (largeur max 600 px).
-2. **Tagger chaque release** : utiliser `./push.sh v1.x.y` (wrapper git add/commit/push/tag).
-3. **Incrémenter la version** à chaque modification d'un asset déjà référencé dans un template en production.
-4. **Ne jamais supprimer** un asset déjà publié dans un template en production — créer une nouvelle version.
-5. **Pas de fichiers > 1 Mo** — utiliser un vrai CDN (Cloudflare R2) pour les gros fichiers.
-
-## Versioning
-
-- `v1.x.y` : campagne **Save the Date** (phase actuelle)
-- `v2.x.y` : campagne **Invitations officielles + Agenda**
-- `v3.x.y` : phase **Live event + Post-event**
+1. **≤ 250 Ko par image**, noms en minuscules sans espace. `check_assets.py` le vérifie,
+   en local et sur chaque pull request.
+2. **Un fichier publié ne se modifie pas et ne se supprime pas** : une correction se
+   publie sous un nouveau nom.
+3. **N'ajouter que ses propres fichiers** (`git add <chemin>`), le dépôt est public.
+4. Publication : pull request, ou `./push.sh next "message" <chemins>` pour le mainteneur.
 
 ## Licences
 
