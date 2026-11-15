@@ -36,7 +36,12 @@ jobs:
 
       - name: Contrôle avant tag
         if: steps.existing.outputs.tag == ''
-        run: python3 check_assets.py --target HEAD
+        run: |
+          flags=""
+          msg=$(git log -1 --format=%B)
+          case "$msg" in *"[allow-modify]"*) flags="$flags --allow-modify" ;; esac
+          case "$msg" in *"[allow-delete]"*) flags="$flags --allow-delete" ;; esac
+          python3 check_assets.py --target HEAD $flags
 
       - name: Créer le tag suivant
         id: tag

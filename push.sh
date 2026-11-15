@@ -6,6 +6,13 @@
 #   ./push.sh v1.5.0 "nouveau logo partenaire"     logos/partners/knowledge/x.png
 #   ./push.sh next   "retouche d'un visuel existant"          # sans chemin : fichiers déjà suivis seulement
 #   ... --yes                                                 # sans question (session sans clavier)
+#   ... --allow-modify                                        # dérogation : remplacer un visuel déjà publié
+#   ... --allow-delete                                        # dérogation : supprimer ou renommer un chemin publié
+#
+# Dérogations — réservées au mainteneur. Un visuel remplacé sous le même nom met
+# jusqu'à 24 h à changer chez qui l'a déjà chargé (cache navigateur), et les proxys
+# d'images des messageries (Gmail, Apple) gardent leur copie plus longtemps encore :
+# pour un email déjà envoyé, préférer un nouveau nom de fichier.
 #
 # Ce que fait le script :
 #   1. vérifie qu'on est sur main, à jour avec origin
@@ -25,9 +32,15 @@ REPO="WMH-Project/neptune-assets"
 # --- arguments --------------------------------------------------------------
 
 YES=0
+CHECK_FLAGS=()
+MARKERS=""
 ARGS=()
 for a in "$@"; do
-  if [[ "$a" == "--yes" ]]; then YES=1; else ARGS+=("$a"); fi
+  case "$a" in
+    --yes) YES=1 ;;
+    --allow-modify|--allow-delete) CHECK_FLAGS+=("$a"); MARKERS="$MARKERS [${a#--}]" ;;
+    *) ARGS+=("$a") ;;
+  esac
 done
 
 TAG="${ARGS[0]:-}"
@@ -35,7 +48,7 @@ MESSAGE="${ARGS[1]:-}"
 PATHS=("${ARGS[@]:2}")
 
 if [[ -z "$TAG" ]]; then
-  echo "usage: $0 <next|vX.Y.Z> \"message\" [chemin ...] [--yes]"
+  echo "usage: $0 <next|vX.Y.Z> \"message\" [chemin ...] [--yes] [--allow-modify] [--allow-delete]"
   echo "   ex: $0 next \"visuels newsletter décembre\" photos/newsletter/december-2026/"
   exit 1
 fi
@@ -81,6 +94,8 @@ if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
 fi
 
 [[ -z "$MESSAGE" ]] && MESSAGE="Release $TAG"
+# La dérogation est tracée dans le message de commit : la CI la lit pour ne pas échouer.
+MESSAGE="$MESSAGE$MARKERS"
 
 # --- ajout ciblé ------------------------------------------------------------
 
@@ -99,7 +114,7 @@ fi
 # --- contrôle bloquant ------------------------------------------------------
 
 echo
-if ! python3 check_assets.py; then
+if ! python3 check_assets.py ${CHECK_FLAGS[@]+"${CHECK_FLAGS[@]}"}; then
   echo
   echo "Publication annulée. Rien n'a été commité ; pour désindexer : git restore --staged ."
   exit 1

@@ -16,8 +16,9 @@ Ce qui est vérifié :
   3. emplacement, extension et nom des fichiers ajoutés ;
   4. aucune suppression, aucun renommage, aucune modification d'un visuel publié :
      le site et les emails déjà envoyés pointent ces chemins, et le CDN
-     (cdn.mission-neptune.com) les sert sans numéro de version, en cache d'un an.
-     Une correction se publie sous un nouveau nom (hero-2.jpg).
+     (cdn.mission-neptune.com) les sert sans numéro de version, en cache d'un jour.
+     Une correction se publie sous un nouveau nom (hero-2.jpg), sauf dérogation
+     du mainteneur (push.sh --allow-modify / --allow-delete).
 """
 import argparse
 import re

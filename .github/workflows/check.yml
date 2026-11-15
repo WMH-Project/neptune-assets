@@ -18,4 +18,10 @@ jobs:
         with:
           fetch-depth: 0   # il faut les tags : la base de comparaison est le dernier tag
       - name: check_assets.py
-        run: python3 check_assets.py --target HEAD
+        # [allow-modify] / [allow-delete] dans le message de commit = dérogation posée par push.sh
+        run: |
+          flags=""
+          msg=$(git log -1 --format=%B)
+          case "$msg" in *"[allow-modify]"*) flags="$flags --allow-modify" ;; esac
+          case "$msg" in *"[allow-delete]"*) flags="$flags --allow-delete" ;; esac
+          python3 check_assets.py --target HEAD $flags
