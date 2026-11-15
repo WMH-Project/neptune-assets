@@ -1,0 +1,19 @@
+# Hébergement des visuels sur cdn.mission-neptune.com (remplace jsDelivr).
+# Netlify redéploie à chaque fusion sur main ; une pull request reçoit une URL d'aperçu.
+#
+# Seuls les dossiers de visuels sont publiés — pas les scripts ni les documents.
+# Les chemins sont ceux du dépôt, sans numéro de version :
+#   https://cdn.mission-neptune.com/photos/newsletter/<campagne>/<fichier>
+# Conséquence : un fichier publié ne se modifie plus (check_assets.py le bloque),
+# une correction se publie sous un nouveau nom.
+
+[build]
+  command = "rm -rf _site && mkdir _site && cp -R photos logos graphics posters reports _site/ && find _site -name '*.md' -delete"
+  publish = "_site"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+    X-Content-Type-Options = "nosniff"

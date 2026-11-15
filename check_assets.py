@@ -14,8 +14,10 @@ Ce qui est vérifié :
   2. poids de chaque fichier AJOUTÉ ou MODIFIÉ depuis la base (les fichiers
      historiques trop lourds sont tolérés tant qu'on n'y touche pas) ;
   3. emplacement, extension et nom des fichiers ajoutés ;
-  4. aucune suppression ni renommage : le site et les emails déjà envoyés
-     pointent des chemins, un chemin publié ne disparaît pas.
+  4. aucune suppression, aucun renommage, aucune modification d'un visuel publié :
+     le site et les emails déjà envoyés pointent ces chemins, et le CDN
+     (cdn.mission-neptune.com) les sert sans numéro de version, en cache d'un an.
+     Une correction se publie sous un nouveau nom (hero-2.jpg).
 """
 import argparse
 import re
@@ -42,7 +44,7 @@ MEDIA_EXT = {"jpg", "jpeg", "png", "webp", "svg", "gif", "avif"}
 OTHER_DIRS = {"docs", "email-signatures", "word", ".github"}
 ROOT_FILES = {
     ".gitignore", "ASSETS.md", "CHANGELOG.md", "CLAUDE.md", "LICENSE", "README.md",
-    "check_assets.py", "optimize_images.py", "push.sh", "requirements.txt",
+    "check_assets.py", "netlify.toml", "optimize_images.py", "push.sh", "requirements.txt",
 }
 # Ne doivent jamais partir sur un dépôt public, où qu'ils soient.
 FORBIDDEN_EXT = {
@@ -125,6 +127,8 @@ def main():
     ap.add_argument("--target", help="arbre à contrôler (défaut : l'index, ce qui est « git add »)")
     ap.add_argument("--allow-delete", action="store_true",
                     help="tolérer suppressions et renommages (à réserver au mainteneur)")
+    ap.add_argument("--allow-modify", action="store_true",
+                    help="tolérer la modification d'un visuel publié (à réserver au mainteneur)")
     args = ap.parse_args()
 
     base = args.base or git("describe", "--tags", "--abbrev=0").strip()
@@ -151,6 +155,11 @@ def main():
                 f"{path} : {ko(size)}, la limite est {ko(FILE_MAX)} — "
                 "réduis ou recompresse l'image avant de publier"
             )
+    for path in modified:
+        if path.split("/")[0] in MEDIA_DIRS and not path.endswith(".md"):
+            msg = (f"{path} : visuel déjà publié, modifié — publie la correction sous un "
+                   "nouveau nom et pointe l'email dessus")
+            (warnings if args.allow_modify else errors).append(msg)
     for path in deleted:
         msg = f"{path} : supprimé ou renommé — un chemin publié ne doit pas disparaître"
         (warnings if args.allow_delete else errors).append(msg)

@@ -78,3 +78,6 @@ word/_test_*.docx
 *.sql
 *.csv
 *.xlsx
+
+# Dossier de build Netlify
+_site/
