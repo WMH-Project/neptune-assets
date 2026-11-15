@@ -1,115 +1,172 @@
 #!/usr/bin/env bash
-# push.sh — publish a new version of neptune-assets
+# push.sh — publie une nouvelle version de neptune-assets (commit + tag sur main)
 #
-# Usage:
-#   ./push.sh v1.0.0 "release initiale save the date"
-#   ./push.sh v1.1.0 "ajout logo partenaire X + photo Y"
+# Usage :
+#   ./push.sh next   "visuels newsletter décembre" photos/newsletter/december-2026/
+#   ./push.sh v1.5.0 "nouveau logo partenaire"     logos/partners/knowledge/x.png
+#   ./push.sh next   "retouche d'un visuel existant"          # sans chemin : fichiers déjà suivis seulement
+#   ... --yes                                                 # sans question (session sans clavier)
 #
-# Prerequisites:
-#   - git configured with user.name and user.email
-#   - authenticated push access to WMH-Project/neptune-assets
-#     (via gh auth login, SSH key, or HTTPS credential helper)
-#   - working tree clean-ish (script will show status before committing)
+# Ce que fait le script :
+#   1. vérifie qu'on est sur main, à jour avec origin
+#   2. « next » = dernier tag + 1 ; refuse un tag déjà pris
+#   3. n'ajoute QUE les chemins passés en argument (jamais « git add -A ») ;
+#      sans chemin, seulement les modifications de fichiers déjà suivis
+#   4. lance check_assets.py (poids par image, poids total, emplacement) — bloquant
+#   5. demande confirmation, puis commit + tag poussés ensemble
+#   6. vérifie que jsDelivr sert bien les nouveaux fichiers
 #
-# What it does:
-#   1. validates tag format (vX.Y.Z)
-#   2. refuses if tag already exists locally or remotely
-#   3. shows git status + diff summary
-#   4. confirms with user
-#   5. git add -A, git commit, git push main
-#   6. git tag -a <tag>, git push --tags
-#   7. prints jsDelivr URLs to purge cache if needed
+# Prérequis : git configuré, accès en écriture à WMH-Project/neptune-assets, python3.
 
 set -euo pipefail
 
-# --- args -------------------------------------------------------------------
+REPO="WMH-Project/neptune-assets"
 
-TAG="${1:-}"
-MESSAGE="${2:-}"
+# --- arguments --------------------------------------------------------------
+
+YES=0
+ARGS=()
+for a in "$@"; do
+  if [[ "$a" == "--yes" ]]; then YES=1; else ARGS+=("$a"); fi
+done
+
+TAG="${ARGS[0]:-}"
+MESSAGE="${ARGS[1]:-}"
+PATHS=("${ARGS[@]:2}")
 
 if [[ -z "$TAG" ]]; then
-  echo "usage: $0 <tag> [message]"
-  echo "   ex: $0 v1.0.0 \"release initiale save the date\""
+  echo "usage: $0 <next|vX.Y.Z> \"message\" [chemin ...] [--yes]"
+  echo "   ex: $0 next \"visuels newsletter décembre\" photos/newsletter/december-2026/"
   exit 1
+fi
+
+# --- garde-fous sur le dépôt ------------------------------------------------
+
+cd "$(dirname "$0")"
+
+if [[ ! -e .git ]]; then
+  echo "erreur : pas un dépôt git"; exit 1
+fi
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [[ "$BRANCH" != "main" ]]; then
+  echo "erreur : on publie depuis main, pas depuis « $BRANCH »."
+  echo "  Depuis une autre branche, ouvre une pull request : le tag se crée après la fusion."
+  exit 1
+fi
+
+echo "==> synchronisation avec origin…"
+git fetch --quiet --tags origin main
+if [[ -n "$(git rev-list HEAD..origin/main)" ]]; then
+  echo "erreur : main local est en retard sur origin/main."
+  echo "  lance : git pull --ff-only"
+  exit 1
+fi
+
+# --- tag --------------------------------------------------------------------
+
+LAST=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -1)
+if [[ "$TAG" == "next" ]]; then
+  if ! [[ "$LAST" =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+    echo "erreur : dernier tag illisible (« $LAST ») — passe un tag explicite"; exit 1
+  fi
+  TAG="v${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.$((BASH_REMATCH[3] + 1))"
 fi
 
 if ! [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo "error: tag must match vX.Y.Z (got: $TAG)"
-  exit 1
+  echo "erreur : le tag doit être « next » ou de la forme vX.Y.Z (reçu : $TAG)"; exit 1
+fi
+if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
+  echo "erreur : le tag $TAG existe déjà (dernier tag : $LAST) — utilise « next »"; exit 1
 fi
 
-if [[ -z "$MESSAGE" ]]; then
-  MESSAGE="Release $TAG"
+[[ -z "$MESSAGE" ]] && MESSAGE="Release $TAG"
+
+# --- ajout ciblé ------------------------------------------------------------
+
+if [[ ${#PATHS[@]} -gt 0 ]]; then
+  git add -- "${PATHS[@]}"
+else
+  git add -u
 fi
 
-# --- sanity checks ----------------------------------------------------------
-
-if [[ ! -d .git ]]; then
-  echo "error: not a git repository (.git/ not found)"
-  exit 1
+LEFT=$(git ls-files --others --exclude-standard --directory | sed 's/^/    /')
+if [[ -n "$LEFT" ]]; then
+  echo "==> non suivis, laissés de côté (passe leur chemin en argument pour les publier) :"
+  echo "$LEFT"
 fi
 
-REMOTE_URL=$(git remote get-url origin 2>/dev/null || echo "")
-if [[ -z "$REMOTE_URL" ]]; then
-  echo "error: no 'origin' remote configured"
-  echo "  run: git remote add origin git@github.com:WMH-Project/neptune-assets.git"
-  exit 1
-fi
+# --- contrôle bloquant ------------------------------------------------------
 
-# tag collision check
-if git rev-parse "$TAG" >/dev/null 2>&1; then
-  echo "error: tag $TAG already exists locally"
-  exit 1
-fi
-
-if git ls-remote --tags origin "$TAG" | grep -q "$TAG"; then
-  echo "error: tag $TAG already exists on remote"
-  exit 1
-fi
-
-# --- summary ----------------------------------------------------------------
-
-echo "==> Repository: $REMOTE_URL"
-echo "==> Tag:        $TAG"
-echo "==> Message:    $MESSAGE"
 echo
-echo "==> git status:"
-git status --short
+if ! python3 check_assets.py; then
+  echo
+  echo "Publication annulée. Rien n'a été commité ; pour désindexer : git restore --staged ."
+  exit 1
+fi
+
+# --- confirmation -----------------------------------------------------------
+
 echo
-echo "==> files that will be added:"
-git add -A --dry-run | sed 's/^/    /'
+echo "==> tag     : $TAG  (précédent : $LAST)"
+echo "==> message : $MESSAGE"
+echo "==> contenu :"
+git diff --cached --stat | sed 's/^/    /'
 echo
 
-read -r -p "Proceed with commit, push, and tag? [y/N] " confirm
-if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
-  echo "aborted."
-  exit 0
+if [[ $YES -ne 1 ]]; then
+  if [[ ! -t 0 ]]; then
+    echo "Pas de clavier pour confirmer : relis la liste ci-dessus puis relance avec --yes."
+    echo "(les fichiers restent indexés ; pour désindexer : git restore --staged .)"
+    exit 1
+  fi
+  read -r -p "Publier ? [y/N] " confirm
+  if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+    echo "annulé. (pour désindexer : git restore --staged .)"; exit 0
+  fi
 fi
 
-# --- commit + push ----------------------------------------------------------
+# --- commit + tag, poussés ensemble -----------------------------------------
 
-git add -A
+NEW_FILES=$(git diff --cached --name-only --diff-filter=AM)
 
 if git diff --cached --quiet; then
-  echo "==> no changes to commit (tag only)"
+  echo "==> rien à commiter (tag seul)"
 else
-  git commit -m "$MESSAGE"
+  git commit -q -m "$MESSAGE"
 fi
-
-# push main (create branch if needed)
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-git push -u origin "$BRANCH"
-
-# tag
 git tag -a "$TAG" -m "$MESSAGE"
-git push origin "$TAG"
+# --atomic : la branche et le tag passent ensemble ou pas du tout.
+git push --atomic origin main "$TAG"
 
-# --- done -------------------------------------------------------------------
+# --- vérification jsDelivr --------------------------------------------------
 
+BASE="https://cdn.jsdelivr.net/gh/$REPO@$TAG"
 echo
-echo "==> Released $TAG"
-echo "==> jsDelivr base URL:"
-echo "    https://cdn.jsdelivr.net/gh/WMH-Project/neptune-assets@$TAG/"
-echo
-echo "==> to purge jsDelivr cache for a specific file (only if overwriting):"
-echo "    curl https://purge.jsdelivr.net/gh/WMH-Project/neptune-assets@$TAG/<path>"
+echo "==> publié : $TAG"
+echo "==> base   : $BASE/"
+
+KO=0
+while IFS= read -r f; do
+  [[ -z "$f" ]] && continue
+  code=$(curl -s -o /dev/null -w '%{http_code}' "$BASE/$f" || echo "000")
+  if [[ "$code" != "200" ]]; then
+    # 404 mis en cache avant propagation du tag, ou 403 de taille : purge puis 2e essai
+    curl -s -o /dev/null "https://purge.jsdelivr.net/gh/$REPO@$TAG/$f" || true
+    sleep 3
+    code=$(curl -s -o /dev/null -w '%{http_code}' "$BASE/$f" || echo "000")
+  fi
+  if [[ "$code" == "200" ]]; then
+    echo "    200  $f"
+  else
+    echo "    $code  $f   ← PAS SERVI"
+    KO=1
+  fi
+done <<< "$NEW_FILES"
+
+if [[ $KO -ne 0 ]]; then
+  echo
+  echo "⚠ Certains fichiers ne sont pas servis par jsDelivr. Ne pas envoyer d'email"
+  echo "  qui les référence avant d'avoir un 200 (réessayer dans quelques minutes)."
+  exit 2
+fi

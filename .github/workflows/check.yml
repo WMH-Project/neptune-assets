@@ -1,0 +1,21 @@
+# Rejoue check_assets.py sur chaque pull request et chaque push sur main :
+# poids par image, poids total de l'arbre (limite jsDelivr), emplacement des fichiers.
+name: Contrôle des assets
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # il faut les tags : la base de comparaison est le dernier tag
+      - name: check_assets.py
+        run: python3 check_assets.py --target HEAD

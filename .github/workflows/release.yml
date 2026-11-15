@@ -1,0 +1,80 @@
+# Après une fusion sur main qui touche des visuels : crée le tag suivant (vX.Y.Z+1)
+# si le commit n'en porte pas déjà un, puis vérifie que jsDelivr sert les nouveaux fichiers.
+# push.sh pousse la branche et son tag ensemble : dans ce cas le workflow ne retague pas.
+name: Tag de publication
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'photos/**'
+      - 'logos/**'
+      - 'graphics/**'
+      - 'posters/**'
+      - 'reports/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-tag
+  cancel-in-progress: false
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Tag déjà posé sur ce commit ?
+        id: existing
+        run: |
+          t=$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -1 || true)
+          echo "tag=$t" >> "$GITHUB_OUTPUT"
+
+      - name: Contrôle avant tag
+        if: steps.existing.outputs.tag == ''
+        run: python3 check_assets.py --target HEAD
+
+      - name: Créer le tag suivant
+        id: tag
+        if: steps.existing.outputs.tag == ''
+        run: |
+          last=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -1)
+          if ! [[ "$last" =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            echo "dernier tag illisible : $last"; exit 1
+          fi
+          next="v${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.$((BASH_REMATCH[3] + 1))"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$next" -m "$(git log -1 --format=%s)"
+          git push origin "$next"
+          echo "last=$last" >> "$GITHUB_OUTPUT"
+          echo "next=$next" >> "$GITHUB_OUTPUT"
+          echo "### Tag publié : \`$next\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Base : \`https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@$next/\`" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Vérifier jsDelivr
+        if: steps.tag.outputs.next != ''
+        run: |
+          base="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@${{ steps.tag.outputs.next }}"
+          purge="https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@${{ steps.tag.outputs.next }}"
+          ko=0
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            code=000
+            for attempt in 1 2 3 4; do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "$base/$f" || echo 000)
+              [ "$code" = "200" ] && break
+              curl -s -o /dev/null "$purge/$f" || true
+              sleep 15
+            done
+            echo "$code  $f"
+            [ "$code" = "200" ] || ko=1
+          done < <(git diff --name-only --diff-filter=AM "${{ steps.tag.outputs.last }}" HEAD -- photos logos graphics posters reports)
+          if [ "$ko" -ne 0 ]; then
+            echo "::error::Des fichiers ne sont pas servis par jsDelivr — ne pas envoyer d'email qui les référence."
+            exit 1
+          fi

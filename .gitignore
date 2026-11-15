@@ -65,3 +65,16 @@ yarn-error.log
 
 # Fichiers de test locaux (non publiés sur le CDN)
 word/_test_*.docx
+
+# Configuration locale de Claude (les réglages partagés, eux, se versionnent)
+.claude/settings.local.json
+.claude/worktrees/
+
+# Originaux et documents qui n'ont rien à faire sur un dépôt public
+*.heic
+*.tif
+*.tiff
+*.eml
+*.sql
+*.csv
+*.xlsx
